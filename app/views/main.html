@@ -1,3 +1,11 @@
+<header id="marquesina">
+  <span ng-repeat="mensaje in mensajes">{{mensaje.texto}} - {{mensaje.autor}}  </span>
+</header>
+
+<ul class="nav nav-pills pull-right">
+  <li><a ng-href="/#/input">Input</a></li>
+</ul>
+
 <form>
   <input name="mensaje" id="mensaje" type="text" placeholder="(Ingrese su mensaje aquí)" maxlength="140" required />
   <input name="firma" id="firma" type="text" placeholder="(Ingrese su firma aquí)" maxlength="25" required />
@@ -30,4 +38,3 @@
     </tr>
   </tbody>
 </table>
-
