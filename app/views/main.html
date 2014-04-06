@@ -6,14 +6,24 @@
 
 <table>
   <thead>
-    <tr>
-      <td>fecha</td>
-      <td>mensaje <input ng-model="query" placeholder="buscar..." /></td>
-      <td>autor</td>
+    <tr class="orderby-{{orderByField}} {{reverseSort}}">
+      <th class="fecha" ng-click="orderByField='fecha'; reverseSort = !reverseSort">
+        fecha
+      </th>
+
+      <th class="texto" ng-click="orderByField='texto'; reverseSort = !reverseSort">
+        mensaje 
+        <input ng-model="query" placeholder="buscar..." />
+      </th>
+
+      <th class="autor" ng-click="orderByField='autor'; reverseSort = !reverseSort">
+        autor
+      </th>
+
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="mensaje in mensajes | filter:query">
+    <tr ng-repeat="mensaje in mensajes | orderBy:orderByField:reverseSort | filter:query">
       <td>{{mensaje.fecha}}</td>
       <td>{{mensaje.texto}}</td>
       <td>{{mensaje.autor}}</td>

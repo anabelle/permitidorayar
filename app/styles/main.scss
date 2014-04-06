@@ -29,12 +29,41 @@ footer {
 
 table {
     width: 100%;
+
+    th {
+        cursor: pointer;
+        position: relative;
+        text-align: left;
+    }
+
+    th:after {
+        content: "\25B2";
+        display: none;
+        position: absolute;
+        right: 5px;
+        top: 2px;
+    }
+    .true th:after {
+        content: "\25BC";
+    }
+
+    .orderby-fecha th.fecha:after {
+        display: inline-block;
+    }
+
+    .orderby-texto th.texto:after {
+        display: inline-block;
+    }
+
+    .orderby-autor th.autor:after {
+        display: inline-block;
+    }
 }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .container {
         margin: 0 auto;
-        max-width: 730px;
+        max-width: 960px;
     }
 }
