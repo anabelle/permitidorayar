@@ -6,7 +6,7 @@ angular.module('permitidorayarApp')
   $scope.orderByField = 'fecha';
   $scope.reverseSort = true;
 
-    $scope.mensajes = [
+  $scope.mensajes = [
     {
       'fecha' : '2014/12/27',
       'texto': 'Mensaje 1 Max 140 Caracteres.',
@@ -24,5 +24,5 @@ angular.module('permitidorayarApp')
       'texto': 'Mensaje 3 Max 140 Caracteres.',
       'autor': 'Firma 3 25 Cars'
     }
-    ];
-  });
+  ];
+});
