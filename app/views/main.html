@@ -1,22 +1,24 @@
-<header id="marquesina">
-  <span ng-repeat="mensaje in mensajes">{{mensaje.texto}} - {{mensaje.autor}}  </span>
-</header>
+<div id="header-container">
+  <header id="marquesina">
+    <marquee><span ng-repeat="mensaje in mensajes">{{mensaje.texto}} - {{mensaje.autor}}  </span></marquee>
+  </header>
 
 
-<nav id="nav_main">
-  <ul>
-    <li><a ng-href="/#/input">input!</a></li>
-  </ul>
-</nav>
+  <nav id="nav_main">
+    <ul>
+      <li><a ng-href="/#/input">input!</a></li>
+    </ul>
+  </nav>
 
-<form>
-  <input name="texto" id="texto" type="text" placeholder="(Ingrese su mensaje aquí)" maxlength="140" required />
-  <input name="autor" id="autor" type="text" placeholder="(Ingrese su firma aquí)" maxlength="25" required />
-  <input type="hidden" id="fecha" value="2014/04/10" />
-  <input id="submit" type="submit" value="enviar" />
-</form>
+  <form>
+    <input name="texto" id="texto" type="text" placeholder="(Ingrese su mensaje aquí)" maxlength="140" required />
+    <input name="autor" id="autor" type="text" placeholder="(Ingrese su firma aquí)" maxlength="25" required />
+    <input type="hidden" id="fecha" value="2014/04/10" />
+    <input id="submit" type="submit" value="enviar" />
+  </form>
+</div>
 
-<table>
+<table cellpadding="0" cellspacing="0">
   <thead>
     <tr class="orderby-{{orderByField}} {{reverseSort}}">
       <th class="fecha" ng-click="orderByField='fecha'; reverseSort = !reverseSort">
@@ -25,7 +27,7 @@
 
       <th class="texto" ng-click="orderByField='texto'; reverseSort = !reverseSort">
         mensaje 
-        <input ng-model="query" placeholder="buscar..." />
+        <input ng-click="$event.stopPropagation();" ng-model="query" placeholder="buscar..." />
       </th>
 
       <th class="autor" ng-click="orderByField='autor'; reverseSort = !reverseSort">
@@ -36,9 +38,9 @@
   </thead>
   <tbody>
     <tr ng-repeat="mensaje in mensajes | orderBy:orderByField:reverseSort | filter:query">
-      <td>{{mensaje.fecha}}</td>
+      <td class="center">{{mensaje.fecha}}</td>
       <td>{{mensaje.texto}}</td>
-      <td>{{mensaje.autor}}</td>
+      <td class="center">{{mensaje.autor}}</td>
     </tr>
   </tbody>
 </table>

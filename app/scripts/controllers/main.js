@@ -15,7 +15,7 @@ angular.module('permitidorayarApp')
 
     {
       'fecha' : '2014/12/31',
-      'texto': 'Mensaje 2 Max 140 Caracteres.',
+      'texto': 'Mensaje 2 Max 140 Caracteres Mensaje 2 Max 140 Caracteres Mensaje 2 Max 140 Caracteres.Mensaje 2 Max 140 Caracteres Mensaje 2 Max 140 Caract',
       'autor': 'Firma 2 25 Cars'
     },
 

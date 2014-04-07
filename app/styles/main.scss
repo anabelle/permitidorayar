@@ -1,10 +1,10 @@
 // bower:scss
 // endbower
-@import url(http://fonts.googleapis.com/css?family=Contrail+One);
+@import url(https://fonts.googleapis.com/css?family=Contrail+One|VT323|Share+Tech+Mono);
 
 @import "compass/css3/box-sizing";
 
-//  Vertical Rythom
+// Vertical Rythm
 // http://atendesigngroup.com/blog/vertical-rhythm-compass
 @import "compass/typography/vertical_rhythm";
 
@@ -22,6 +22,7 @@ $base-line-height: 24px;
 
 @include placeholder {
     color: #FF0000;
+    font-family: 'Share Tech Mono', monospace;
 }
 
 .browsehappy {
@@ -36,7 +37,6 @@ a {
     text-decoration: none;
 }
 
-/* Space out content a bit */
 body {
     @include rhythm(3, 1, 1, 3, 16px);
     background-color: #221F1F;
@@ -45,7 +45,17 @@ body {
 }
 
 footer {
+    margin: 0 auto;
+    max-width: 960px;
     text-align: center;
+
+    a {
+        color: #fff;
+    }
+
+    p {
+        text-align: right;
+    }
 }
 
 form {
@@ -55,7 +65,7 @@ form {
         @include box-sizing( 'border-box' );
         display: block;
         margin: 0 0 0 auto;
-        font-family: 'Contrail One', cursive;
+        font-family: 'Share Tech Mono', monospace;
     }
 
     input[type=submit]{ 
@@ -72,16 +82,17 @@ form {
 
     #autor {
         @include rhythm(1, 0.25, 0.25, 0.25, 18px);
-        width: 25%;
+        width: 27%;
     }
 
     #submit {
         @include adjust-font-size-to(48px);
-        @include rhythm(0, 0, 0.5, 5, 48px);
+        @include rhythm(0, 0, 0.5, 2, 48px);
         border: none;
         background-color: transparent;
         color: #fff;
         cursor: pointer;
+        font-family: 'Contrail One', cursive;
     }
 
     #texto {
@@ -90,31 +101,128 @@ form {
 }
 
 table {
+    @include rhythm(0, 0, 0, 6, 16px);
+    border-collapse: collapse;
+    border-spacing: 0;
     width: 100%;
 
+    tbody {
+        color: #FF0000;
+        td {
+            @include leading-border(1px, 0);
+            @include trailing-border(1px, 0);
+            @include rhythm(0, 0.5, 0.25, 0, 16px);
+            border: 1px solid #fff;
+            font-family: 'Share Tech Mono', monospace;
+            padding-left: 1em;
+            padding-right: 1em;
+        }
+
+        tr:first-child {
+            td:nth-child(2) {
+                border-top: none;
+            }
+        }
+    }
+
+    thead {
+    }
+
     th {
+        border: 1px solid;
+        @include adjust-font-size-to(26px);
+        @include rhythm(0, 0, 0, 0, 48px);
+        @include trailing-border(1px, 0);
+        border-color: #fff;
         cursor: pointer;
         position: relative;
         text-align: left;
+
+        @include placeholder {
+            color: #FFF;
+            font-family: 'Contrail One', cursive;
+            @include adjust-font-size-to(26px, 1, 26px);
+            vertical-align: middle;
+            line-height: 40px;
+        }
+
+        input {
+            @include adjust-font-size-to(26px, 1, 26px);
+            @include trailing-border(1px, 0);
+            @include rhythm(0, 0.45, 0.45, 0, 36px);
+            background-color: transparent;
+            border: 0;
+            border-bottom:1px solid #fff;
+            border-left: 1px solid #fff;
+            color: #fff;
+            display: inline-block;
+            float: right;
+            font-family: 'Contrail One', cursive;
+            margin-left: 1em;
+            padding-left: 1em;
+            vertical-align: middle;
+            width: 70%;
+            margin-bottom: -2px;
+        }
+
+        input:focus {
+            outline: none;
+        }
+    }
+
+    td:first-child,
+    th:first-child {
+        border-left: none;
+    }
+
+    td:last-child,
+    th:last-child {
+        border-right: none;
+    }
+
+    th.autor {
+        min-width: 5em;
+    }
+
+    th.autor, 
+    th.fecha {
+        text-align: center;
+    }
+
+    th.texto {
+        border-bottom: none;
+        padding-left: 1em;
+        padding-right: 0;
     }
 
     th:after {
+        @include adjust-font-size-to(10px);
         content: "\25B2";
         display: none;
         position: absolute;
-        right: 5px;
-        top: 2px;
+        right: 10px;
+        top: 5px;
     }
     .true th:after {
         content: "\25BC";
+    }
+
+    .orderby-fecha th.fecha {
+        padding-right: 20px;
     }
 
     .orderby-fecha th.fecha:after {
         display: inline-block;
     }
 
+    .orderby-autor th.autor {
+        padding-right: 20px;
+    }
+
     .orderby-texto th.texto:after {
         display: inline-block;
+        margin-right: 1.2em;
+        right: 70%;
     }
 
     .orderby-autor th.autor:after {
@@ -124,14 +232,15 @@ table {
 
 #marquesina {
     color: #FF0000;
+    font-family: 'Share Tech Mono', monospace;
     left: 0;
-    position: absolute;
+    position: fixed;
     top:20px;
 }
 
 #nav_main {
     ul {
-        @include rhythm(0, 0, 0, 6, 42px);
+        @include rhythm(0, 0, 0, 4, 42px);
         list-style-type: none;
         padding-left: 0;
         padding-right: 0;
@@ -147,6 +256,10 @@ table {
             }
         }
     }
+}
+
+.center {
+    text-align: center;
 }
 
 /* Responsive: Portrait tablets and up */
