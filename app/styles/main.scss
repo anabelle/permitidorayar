@@ -2,6 +2,28 @@
 // endbower
 @import url(http://fonts.googleapis.com/css?family=Contrail+One);
 
+@import "compass/css3/box-sizing";
+
+//  Vertical Rythom
+// http://atendesigngroup.com/blog/vertical-rhythm-compass
+@import "compass/typography/vertical_rhythm";
+
+$base-font-size: 16px;
+$base-line-height: 24px;
+
+@include establish-baseline;
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}  
+}
+
+@include placeholder {
+    color: #FF0000;
+}
+
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
@@ -16,15 +38,55 @@ a {
 
 /* Space out content a bit */
 body {
+    @include rhythm(3, 1, 1, 3, 16px);
     background-color: #221F1F;
     color: #fff;
     font-family: 'Contrail One', cursive;
-    padding-top: 20px;
-    padding-bottom: 0px;
 }
 
 footer {
     text-align: center;
+}
+
+form {
+    text-align: right;
+
+    input {
+        @include box-sizing( 'border-box' );
+        display: block;
+        margin: 0 0 0 auto;
+        font-family: 'Contrail One', cursive;
+    }
+
+    input[type=submit]{ 
+        @include adjust-font-size-to(24px);
+        text-align: right;
+    }
+
+    input[type=text]{
+        @include adjust-font-size-to(18px);
+        @include rhythm(1, 0.25, 0.25, 1, 18px);
+        color: #FF0000;
+        text-align: center;
+    }
+
+    #autor {
+        @include rhythm(1, 0.25, 0.25, 0.25, 18px);
+        width: 25%;
+    }
+
+    #submit {
+        @include adjust-font-size-to(48px);
+        @include rhythm(0, 0, 0.5, 5, 48px);
+        border: none;
+        background-color: transparent;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    #texto {
+        width: 100%;
+    }
 }
 
 table {
@@ -61,9 +123,30 @@ table {
 }
 
 #marquesina {
+    color: #FF0000;
     left: 0;
     position: absolute;
     top:20px;
+}
+
+#nav_main {
+    ul {
+        @include rhythm(0, 0, 0, 6, 42px);
+        list-style-type: none;
+        padding-left: 0;
+        padding-right: 0;
+        text-align: right;
+
+        li {
+            @include adjust-font-size-to(20px);
+            @include rhythm(0, 0, 0, 0, 16px);
+
+            a {
+                color: #fff;
+                text-decoration: underline
+            }
+        }
+    }
 }
 
 /* Responsive: Portrait tablets and up */
