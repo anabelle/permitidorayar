@@ -1,3 +1,4 @@
+
 <div id="header-container">
   <header id="marquesina">
     <marquee><span ng-repeat="mensaje in mensajes">{{mensaje.texto}} - {{mensaje.autor}}  </span></marquee>
@@ -10,8 +11,8 @@
     </ul>
   </nav>
 
-  <form>
-    <input name="texto" id="texto" type="text" placeholder="(Ingrese su mensaje aquí)" maxlength="140" required />
+  <form  ng-submit="processForm()">
+    <input name="texto" id="texto"  type="text" placeholder="(Ingrese su mensaje aquí)" maxlength="140" required />
     <input name="autor" id="autor" type="text" placeholder="(Ingrese su firma aquí)" maxlength="25" required />
     <input type="hidden" id="fecha" value="2014/04/10" />
     <input id="submit" type="submit" value="enviar" />
@@ -33,7 +34,6 @@
       <th class="autor" ng-click="orderByField='autor'; reverseSort = !reverseSort">
         autor
       </th>
-
     </tr>
   </thead>
   <tbody>

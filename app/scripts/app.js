@@ -5,9 +5,10 @@ angular
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ngRoute'
+    'ngRoute',
+    'CornerCouch'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider ) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
