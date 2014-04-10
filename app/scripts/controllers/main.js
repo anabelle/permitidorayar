@@ -17,7 +17,6 @@ angular.module('permitidorayarApp')
 
   $scope.pullData();
 
-
   $scope.processForm = function(){
     $scope.formData;
 
