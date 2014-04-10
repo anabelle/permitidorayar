@@ -7,7 +7,7 @@ angular.module('permitidorayarApp')
 
   $scope.datetime = {time : new Date()};
 
- $http({method:'GET', url: 'https://api.mongohq.com/databases/vital/collections/messages/documents?_apikey=6pnomhzb6yre2nifkc4u'})
+ $http({method:'GET', url: 'https://api.mongohq.com/databases/vital/collections/messages/documents?_apikey=6pnomhzb6yre2nifkc4u&sort={"date":-1}&limit=10'})
     .success(function(data, status, headers, config){
       console.log(data);
     $scope.mensajes = data;
