@@ -38,17 +38,23 @@ a {
 }
 
 body {
-    @include rhythm(3, 1, 1, 3, 16px);
+    @include rhythm(3, 1, 0, 0, 16px);
     background-color: #221F1F;
     color: #fff;
     font-family: 'Contrail One', cursive;
 }
 
 footer {
+    background-color: #fff;
     margin: 0 auto;
-    max-width: 960px;
     text-align: center;
 
+    .logos img {
+        display: inline-block;
+        vertical-align: bottom;
+        margin: 0 2em;
+    }
+    
     a {
         color: #fff;
     }
@@ -78,6 +84,16 @@ form {
         @include rhythm(1, 0.25, 0.25, 1, 18px);
         color: #FF0000;
         text-align: center;
+    }
+
+    input[type=text]:first-of-type {
+        @include rhythm(0, 0.25, 0.25, 1, 18px);
+    }
+
+    p {
+        @include adjust-font-size-to(16px);
+        @include rhythm(1, 0, 0.25, 0, 16px);
+        letter-spacing: 0.35px;
     }
 
     #autor {
@@ -240,19 +256,19 @@ table {
 
 #nav_main {
     ul {
-        @include rhythm(0, 0, 0, 4, 42px);
+        @include rhythm(0, 0, 0, 0.5, 42px);
         list-style-type: none;
         padding-left: 0;
         padding-right: 0;
         text-align: right;
 
         li {
-            @include adjust-font-size-to(20px);
+            @include adjust-font-size-to(16px);
             @include rhythm(0, 0, 0, 0, 16px);
 
             a {
                 color: #fff;
-                text-decoration: underline
+                text-decoration: none
             }
         }
     }

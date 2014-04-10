@@ -1,22 +1,25 @@
-
 <div id="header-container">
   <header id="marquesina">
-    <marquee><span ng-repeat="mensaje in mensajes">{{mensaje.texto}} - {{mensaje.autor}}  </span></marquee>
+    <marquee><span ng-repeat="mensaje in mensajes">{{mensaje.body}} - {{mensaje.author}}  </span></marquee>
   </header>
 
+  <form ng-submit="processForm()">
+    <p>Los mensajes enviados serán publicados en una pantalla de leds ubicada en la Galería Santa Fe, en la Calle 12b No. 2 - 71 en Bogotá, Colombia.</p>
+    <input name="texto" id="texto" type="text" ng-model="formData.body" placeholder="(Ingrese su mensaje aquí. Máximo 140 caracteres)" maxlength="140" required />
+    <input name="autor" id="autor" type="text" ng-model="formData.author" placeholder="(Ingrese su firma aquí)" maxlength="25" required />
+    <!--
+    <input type="hidden" id="fecha" value="{{datetime.time | amDateFormat:'dddd, MMMM Do YYYY, h:mm:ss a'}}" ng-model="formData.date" />
+    <input id="submit" type="submit" value="enviar" />
+    -->
+        <input type="hidden" id="fecha" value="{{datetime.time }}" ng-model="formData.date" />
+    <input id="submit" type="submit" value="enviar" />
+  </form>
 
   <nav id="nav_main">
     <ul>
-      <li><a ng-href="#/input">input!</a></li>
+      <li>input! - un proyecto de <a href="http://montenegrojaramillo.com" target="_blank">Ana Maria Montenegro</a> <a href="http://decolector.github.io/input/" target="_blank">+info</a></li>
     </ul>
   </nav>
-
-  <form  ng-submit="processForm()">
-    <input name="texto" id="texto"  type="text" placeholder="(Ingrese su mensaje aquí)" maxlength="140" required />
-    <input name="autor" id="autor" type="text" placeholder="(Ingrese su firma aquí)" maxlength="25" required />
-    <input type="hidden" id="fecha" value="2014/04/10" />
-    <input id="submit" type="submit" value="enviar" />
-  </form>
 </div>
 
 <table cellpadding="0" cellspacing="0">
@@ -26,21 +29,22 @@
         fecha
       </th>
 
-      <th class="texto" ng-click="orderByField='texto'; reverseSort = !reverseSort">
+      <th class="body" ng-click="orderByField='body'; reverseSort = !reverseSort">
         mensaje 
         <input ng-click="$event.stopPropagation();" ng-model="query" placeholder="buscar..." />
       </th>
 
-      <th class="autor" ng-click="orderByField='autor'; reverseSort = !reverseSort">
+      <th class="author" ng-click="orderByField='author'; reverseSort = !reverseSort">
         autor
       </th>
+
     </tr>
   </thead>
   <tbody>
     <tr ng-repeat="mensaje in mensajes | orderBy:orderByField:reverseSort | filter:query">
       <td class="center">{{mensaje.fecha}}</td>
-      <td>{{mensaje.texto}}</td>
-      <td class="center">{{mensaje.autor}}</td>
+      <td>{{mensaje.body}}</td>
+      <td class="center">{{mensaje.author}}</td>
     </tr>
   </tbody>
 </table>
