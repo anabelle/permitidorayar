@@ -6,8 +6,8 @@ angular
     'ngResource',
     'ngSanitize',
     'ngRoute',
-    'CornerCouch',
-    'angularMoment'
+    'CornerCouch'
+    //'angularMoment'
   ])
   .config(function ($routeProvider ) {
     $routeProvider

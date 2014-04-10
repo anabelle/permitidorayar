@@ -30,7 +30,7 @@
       </th>
 
       <th class="body" ng-click="orderByField='body'; reverseSort = !reverseSort">
-        mensaje 
+        mensaje
         <input ng-click="$event.stopPropagation();" ng-model="query" placeholder="buscar..." />
       </th>
 
@@ -42,7 +42,7 @@
   </thead>
   <tbody>
     <tr ng-repeat="mensaje in mensajes | orderBy:orderByField:reverseSort | filter:query">
-      <td class="center">{{mensaje.fecha}}</td>
+      <td class="center">{{mensaje.date | date:'medium'}}</td>
       <td>{{mensaje.body}}</td>
       <td class="center">{{mensaje.author}}</td>
     </tr>
